@@ -19,7 +19,6 @@ export default {
   },
   data() {
     return {
-      itemName: "",
       items: [
         "Создать поле ввода в itemName",
         "Добавить кнопку вызывающую метод addItem",

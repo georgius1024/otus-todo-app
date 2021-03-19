@@ -1,21 +1,24 @@
 <template>
   <div id="app">
-    <h1>ToDo App</h1>
+    <TodoHeader>ToDo App</TodoHeader>
     <hr>
-    <Input @add="addItem($event)" />
+    <TodoInput @add="addItem($event)" />
     <hr>
-    <List :items="items" @remove="removeItem($event)" />
+    <TodoList :items="items" @remove="removeItem($event)" />
   </div>
 </template>
 
 <script>
-import Input from './components/Input.vue'
-import List from './components/List.vue'
+import TodoInput from './components/Input.vue'
+import TodoList from './components/List.vue'
+import TodoHeader from './components/Header.vue'
+
 export default {
   name: "App",
   components: {
-    Input,
-    List
+    TodoInput,
+    TodoList,
+    TodoHeader
   },
   data() {
     return {

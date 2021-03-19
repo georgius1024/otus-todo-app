@@ -26,6 +26,8 @@ export default {
 ul {
   list-style-type: none;
   text-align: left;
+  margin: 0;
+  padding: 0;
 }
 ul > li {
   border-top: 1px solid #333;

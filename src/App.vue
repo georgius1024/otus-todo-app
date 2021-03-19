@@ -1,19 +1,6 @@
 <template>
   <div id="app">
     <h1>ToDo App</h1>
-    <hr>
-    <section>
-      <input v-model="itemName" placeholder="Введите задачу">
-      <button @click="addItem">Добавить</button>
-    </section>
-    <hr>
-    <ul>
-      <li v-for="item in items" :key="item">
-        <span class="float-right" @click="removeItem(item)">&times;</span>
-        <span v-text="item"/>
-      </li>
-    </ul>
-  </div>
 </template>
 
 <script>

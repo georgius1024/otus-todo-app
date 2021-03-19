@@ -2,23 +2,21 @@
   <div id="app">
     <h1>ToDo App</h1>
     <hr>
-    <section>
-      <input v-model="itemName" placeholder="Введите задачу">
-      <button @click="addItem">Добавить</button>
-    </section>
+    <Input @add="addItem($event)" />
     <hr>
-    <ul>
-      <li v-for="item in items" :key="item">
-        <span class="float-right" @click="removeItem(item)">&times;</span>
-        <span v-text="item"/>
-      </li>
-    </ul>
+    <List :items="items" @remove="removeItem($event)" />
   </div>
 </template>
 
 <script>
+import Input from './components/Input.vue'
+import List from './components/List.vue'
 export default {
   name: "App",
+  components: {
+    Input,
+    List
+  },
   data() {
     return {
       itemName: "",
@@ -31,10 +29,9 @@ export default {
     };
   },
   methods: {
-    addItem() {
-      if (this.itemName && this.items.indexOf(this.itemName) === -1) {
-        this.items.push(this.itemName);
-        this.itemName = "";
+    addItem(itemName) {
+      if (itemName && this.items.indexOf(itemName) === -1) {
+        this.items.push(itemName);
       }
     },
     removeItem(item) {
@@ -59,27 +56,5 @@ hr {
   margin: 12px 0;
   border: none;
   border-top: 1px solid #aaa;
-}
-input {
-  padding: 12px;
-}
-button {
-  padding: 12px;
-}
-ul {
-  list-style-type: none;
-  text-align: left;
-}
-ul > li {
-  border-top: 1px solid #333;
-  padding: 12px;
-}
-ul > li:last-child {
-  border-bottom: 1px solid #333;
-}
-
-.float-right {
-  float: right;
-  cursor: pointer;
 }
 </style>
